@@ -35,6 +35,11 @@
  */
 	Configure::write('debug', 1);
 
+	$env = env('WEB_APP_ENV');
+	if ($env === 'production' || $env === 'staging') {
+		Configure::write('debug', 0);
+	}
+
 /**
  * Configure the Error handler used to handle errors for your application. By default
  * ErrorHandler::handleError() is used. It will display errors using Debugger, when debug > 0
